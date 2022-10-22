@@ -18,23 +18,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootApplication
-@RestController
 public class Simulation {
 
-    @Autowired
-    private QuoteMapper mapper;
 
-    @GetMapping
-    public List<Quote> getRates() throws IOException {
-        RestTemplate restTemplate = new RestTemplate();
-        String quoteString = restTemplate.getForObject("https://query1.finance.yahoo.com/v7/finance/download/BTC-USD?period1=1633678351&period2=1665214351&interval=1d&events=history", String.class);
-        CSVParser parser = CSVFormat.RFC4180.withFirstRecordAsHeader().parse(new StringReader(quoteString));
-        List<Quote> result = new ArrayList<>();
-        for(CSVRecord record: parser) {
-            result.add(mapper.map(record));
-        }
-        return result;
-    }
 
     public static void main(String[] args) {
         SpringApplication.run(Simulation.class, args);
