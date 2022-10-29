@@ -15,7 +15,7 @@ public interface QuoteMapper {
 
     default Quote map(CSVRecord record) {
         Quote result = new Quote();
-        result.setDate(LocalDate.from(Utility.formatter.parse(record.get("Date"))));
+        result.setDate(LocalDate.from(Utility.FORMATTER.parse(record.get("Date"))));
         result.setClose(new BigDecimal(record.get("Close")));
         result.setOpen(new BigDecimal(record.get("Open")));
         result.setHigh(new BigDecimal(record.get("High")));

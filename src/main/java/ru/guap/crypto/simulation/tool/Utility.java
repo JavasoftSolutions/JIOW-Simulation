@@ -4,6 +4,7 @@ import java.time.format.DateTimeFormatter;
 
 public class Utility {
 
-    public static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    private static final String DATETIME_FORMAT = "yyyy-MM-dd";
+    public static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern(DATETIME_FORMAT);
 
 }

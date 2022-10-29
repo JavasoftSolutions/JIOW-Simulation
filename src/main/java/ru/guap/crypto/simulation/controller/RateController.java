@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ru.guap.crypto.simulation.dto.Quote;
 import ru.guap.crypto.simulation.service.rate.RateService;
+import ru.guap.crypto.simulation.tool.Utility;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -20,7 +21,6 @@ import java.util.List;
 @RestController
 public class RateController {
 
-    private static final String DATETIME_FORMAT = "yyyy-MM-dd";
     private final ApplicationContext context;
 
     @GetMapping
@@ -29,8 +29,8 @@ public class RateController {
             throw new RuntimeException("Please check that \"quote\" and \"dateFrom\" and \"dateTo\" and \"interval\" were provided");
         }
         RateService rateService = (RateService) context.getBean(quote);
-        LocalDateTime  from = LocalDate.from(DateTimeFormatter.ofPattern(DATETIME_FORMAT).parse(dateFrom)).atStartOfDay();
-        LocalDateTime  to = LocalDate.from(DateTimeFormatter.ofPattern(DATETIME_FORMAT).parse(dateTo)).plusDays(1).atStartOfDay();
+        LocalDateTime  from = LocalDate.from(Utility.FORMATTER.parse(dateFrom)).atStartOfDay();
+        LocalDateTime  to = LocalDate.from(Utility.FORMATTER.parse(dateTo)).plusDays(1).atStartOfDay();
         return rateService.getRates(from, to, "1d");
     }
 
