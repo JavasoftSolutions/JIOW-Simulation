@@ -8,7 +8,6 @@ import org.nd4j.linalg.factory.Nd4j;
 import org.springframework.stereotype.Service;
 import ru.guap.crypto.simulation.dto.Quote;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;

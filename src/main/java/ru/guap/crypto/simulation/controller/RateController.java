@@ -5,14 +5,12 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ru.guap.crypto.simulation.dto.Quote;
 import ru.guap.crypto.simulation.service.rate.RateService;
 import ru.guap.crypto.simulation.tool.Utility;
 
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
