@@ -21,7 +21,7 @@ public class RateController {
     private final ApplicationContext context;
 
     @GetMapping
-    public List<Quote> getRates(String quote, String dateFrom, String dateTo, String interval) throws IOException {
+    public String getRates(String quote, String dateFrom, String dateTo, String interval) throws IOException {
         if (StringUtils.isEmpty(quote) || StringUtils.isEmpty(dateFrom) || StringUtils.isEmpty(dateTo) || StringUtils.isEmpty(interval)) {
             throw new RuntimeException("Please check that \"quote\" and \"dateFrom\" and \"dateTo\" and \"interval\" were provided");
         }

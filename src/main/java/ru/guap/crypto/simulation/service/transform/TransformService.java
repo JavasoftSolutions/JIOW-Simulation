@@ -1,11 +1,11 @@
-package ru.guap.crypto.simulation.service;
+package ru.guap.crypto.simulation.service.transform;
 
-import org.nd4j.linalg.api.ndarray.INDArray;
+import org.nd4j.linalg.dataset.api.iterator.DataSetIterator;
+import ru.guap.crypto.simulation.dto.Quote;
 
 import java.util.List;
-import java.util.Queue;
 
 public interface TransformService {
 
-    INDArray transform(List<Queue> queueList);
+    DataSetIterator transform(List<Quote> queueList);
 }

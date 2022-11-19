@@ -14,15 +14,13 @@ import java.time.LocalDate;
 public interface QuoteMapper {
 
     default Quote map(CSVRecord record) {
-        Quote result = new Quote();
-        result.setDate(LocalDate.from(Utility.FORMATTER.parse(record.get("Date"))));
-        result.setClose(new BigDecimal(record.get("Close")));
-        result.setOpen(new BigDecimal(record.get("Open")));
-        result.setHigh(new BigDecimal(record.get("High")));
-        result.setLow(new BigDecimal(record.get("Low")));
-        result.setVolume(new BigDecimal(record.get("Volume")));
-        result.setAdjClose(new BigDecimal(record.get("Adj Close")));
-        return result;
+        return Quote.builder().date(LocalDate.from(Utility.FORMATTER.parse(record.get("Date"))))
+                .close(new BigDecimal(record.get("Close")))
+                .open(new BigDecimal(record.get("Open")))
+                .high(new BigDecimal(record.get("High")))
+                .low(new BigDecimal(record.get("Low")))
+                .volume(new BigDecimal(record.get("Volume")))
+                .adjClose(new BigDecimal(record.get("Adj Close"))).build();
     }
 
 }

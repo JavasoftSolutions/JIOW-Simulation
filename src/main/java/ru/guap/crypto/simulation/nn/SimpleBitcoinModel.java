@@ -1,2 +1,4 @@
-package ru.guap.crypto.simulation.nn;public class SimpleBitcoinModel {
+package ru.guap.crypto.simulation.nn;
+
+public class SimpleBitcoinModel {
 }
