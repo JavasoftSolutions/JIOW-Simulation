@@ -8,7 +8,7 @@ import org.deeplearning4j.nn.multilayer.MultiLayerNetwork;
 import org.nd4j.linalg.api.ndarray.INDArray;
 import org.nd4j.linalg.factory.Nd4j;
 import org.springframework.stereotype.Service;
-import ru.guap.crypto.simulation.dto.Quote;
+import ru.guap.crypto.simulation.dto.QuoteDto;
 import ru.guap.crypto.simulation.mapper.QuoteMapper;
 import ru.guap.crypto.simulation.service.client.RestClient;
 import ru.guap.crypto.simulation.service.modeler.RateModeler;
@@ -48,7 +48,7 @@ public class RateServiceImpl implements RateService {
         } catch (IOException e) {
             throw new RuntimeException("Unable to parse retrieved quotes: " + stringWithQuotes);
         }
-        List<Quote> result = new ArrayList<>();
+        List<QuoteDto> result = new ArrayList<>();
         for (CSVRecord record : parser) {
             result.add(mapper.map(record));
         }

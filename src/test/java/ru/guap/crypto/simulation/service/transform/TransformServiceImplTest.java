@@ -3,18 +3,16 @@ package ru.guap.crypto.simulation.service.transform;
 import org.apache.commons.lang3.RandomUtils;
 import org.nd4j.linalg.api.ndarray.INDArray;
 import org.nd4j.linalg.dataset.api.iterator.DataSetIterator;
-import ru.guap.crypto.simulation.dto.Quote;
+import ru.guap.crypto.simulation.dto.QuoteDto;
 
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class TransformServiceImplTest {
 
-    private static List<Quote> data;
+    private static List<QuoteDto> data;
 
     @org.junit.jupiter.api.BeforeEach
     void setUp() {
@@ -31,9 +29,9 @@ class TransformServiceImplTest {
         DataSetIterator dataSetIterator = transformService.transform(data);
     }
 
-    private List<Quote> generateData() {
+    private List<QuoteDto> generateData() {
         return IntStream.range(0, 100_000).mapToObj(index ->
-            Quote.builder().close(getRandom(5_000.00, 50_000.00)).volume(getRandom(5_000_000.00, 15_000_000)).build()
+            QuoteDto.builder().close(getRandom(5_000.00, 50_000.00)).volume(getRandom(5_000_000.00, 15_000_000)).build()
         ).collect(Collectors.toList());
     }
 

@@ -6,7 +6,7 @@ import org.nd4j.linalg.dataset.DataSet;
 import org.nd4j.linalg.dataset.api.iterator.DataSetIterator;
 import org.nd4j.linalg.factory.Nd4j;
 import org.springframework.stereotype.Service;
-import ru.guap.crypto.simulation.dto.Quote;
+import ru.guap.crypto.simulation.dto.QuoteDto;
 
 import java.util.Collections;
 import java.util.List;
@@ -18,8 +18,8 @@ public class TransformServiceImpl implements TransformService {
     private static int SAMPLE_WINDOW = 30;
 
     @Override
-    public DataSetIterator transform(List<Quote> quoteList) {
-        Quote[] quotes = quoteList.toArray(new Quote[0]);
+    public DataSetIterator transform(List<QuoteDto> quoteList) {
+        QuoteDto[] quotes = quoteList.toArray(new QuoteDto[0]);
         int numberOfQuotes = quotes.length - 1;
         double[] closes = new double[numberOfQuotes];
         double[] volumes = new double[numberOfQuotes];

@@ -12,7 +12,7 @@ import org.nd4j.linalg.dataset.api.iterator.DataSetIterator;
 import org.nd4j.linalg.learning.config.Nesterovs;
 import org.nd4j.linalg.lossfunctions.LossFunctions;
 import org.springframework.stereotype.Service;
-import ru.guap.crypto.simulation.dto.Quote;
+import ru.guap.crypto.simulation.dto.QuoteDto;
 import ru.guap.crypto.simulation.service.transform.TransformService;
 import ru.guap.crypto.simulation.tool.Utility;
 
@@ -32,7 +32,7 @@ public class RateModelerImpl implements RateModeler {
     private final TransformService transformService;
 
     @Override
-    public void prepareModel(String quote, List<Quote> result) {
+    public void prepareModel(String quote, List<QuoteDto> result) {
         DataSetIterator iterator = transformService.transform(result);
 
         //Create the network
